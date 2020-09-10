@@ -1,0 +1,114 @@
+﻿<Window x:Class="SmurfUltimate.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SmurfUltimate"
+        mc:Ignorable="d"
+        Title="Smurf Ultimate" Height="450" Width="800"
+        WindowStyle="None"
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen"
+        MouseMove="WindowDrag">
+    <Window.Background>
+        <ImageBrush ImageSource="Resources/background.png"></ImageBrush>
+    </Window.Background>
+    <Grid>
+        <Grid x:Name="Interface" Margin="0,0,0,415">
+            <Image Name="Separator" Source="Resources/separator.png" Margin="0,28,0,0"/>
+            <Image Name="CloseButton" HorizontalAlignment="Left" Height="28" Margin="734,0,0,0" VerticalAlignment="Top" Width="66" MouseLeftButtonUp="CloseClick">
+                <Image.Style>
+                    <Style TargetType="{x:Type Image}">
+                        <Setter Property="Source" Value="Resources/ButtonNormal/CloseButtonNormal.png"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Source" Value="Resources/ButtonHover/CloseButtonHover.png"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
+            <Image Name="MinimizeButton" HorizontalAlignment="Left" Height="28" Margin="675,0,0,0" VerticalAlignment="Top" Width="75" MouseLeftButtonUp="MinimizeClick">
+                <Image.Style>
+                    <Style TargetType="{x:Type Image}">
+                        <Setter Property="Source" Value="Resources/ButtonNormal/MinimizeButtonNormal.png"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Source" Value="Resources/ButtonHover/MinimizeButtonHover.png"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
+            <Image Name="OverviewTab" HorizontalAlignment="Left" Height="28" Source="Resources/Tabs/Tab1/Tab1Selected.png" VerticalAlignment="Top" Width="202" Margin="1,0,0,0" MouseLeftButtonUp="OverviewUp"/>
+            <Image Name="NetworkTab" HorizontalAlignment="Left" Height="28" Source="Resources/Tabs/Tab2/Tab2.png" VerticalAlignment="Top" Width="202" Margin="226,0,0,0" MouseLeftButtonUp="NetworkUp"/>
+            <Image Name="ProcessesTab" HorizontalAlignment="Left" Height="28" Source="Resources/Tabs/Tab3/Tab3.png" VerticalAlignment="Top" Width="202" Margin="450,0,0,0" MouseLeftButtonUp="ProcessesUp"/>
+        </Grid>
+        <Grid Name="Overview" Margin="0,33,0,0" Visibility="Visible">
+            <Label Content="Overview"/>
+        </Grid>
+        <Grid Name="Network" Margin="0,33,0,0" Visibility="Hidden">
+            <Grid>
+                <Image Source="Resources/Graph/graphTitle.png" Margin="72,26,68,358"/>
+                <Image Source="Resources/Graph/graphLine.png" Margin="72,56,86,290.5"/>
+                <Image Source="Resources/Graph/graphLine.png" Margin="72,121,86,224.5"/>
+                <Image Source="Resources/Graph/graphLine.png" Margin="72,187,86,158.5"/>
+                <Image Source="Resources/Graph/graphLine.png" Margin="72,252,86,92.5"/>
+                <Image Source="Resources/Graph/graphLine.png" Margin="72,317,86,26.5"/>
+
+                <TextBlock Foreground="#FFFFFF" Text="Application" FontSize="15" Margin="101,35,525,365" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P"/>
+                <TextBlock Foreground="#FFFFFF" Text="Protocol" FontSize="15" Margin="363,35,307,364.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P"/>
+                <TextBlock Foreground="#FFFFFF" Text="Packet" FontSize="15" Margin="551,35,155,365" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P"/>
+                
+                <TextBlock Name="app1" Foreground="#FFFFFF" Text="LskHlpr.exe" FontSize="12" Margin="101,99,476,300.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Name="app2" Foreground="#FFFFFF" Text="LskHlpr64.exe" FontSize="12" Margin="101,165,476,234.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Name="app3" Foreground="#FFFFFF" Text="Student.exe" FontSize="12" Margin="101,230,476,169.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Name="app4" Foreground="#FFFFFF" Text="Random exe here" FontSize="12" Margin="101,295,476,104.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Name="app5" Foreground="#FFFFFF" Text="Random exe here 2" FontSize="12" Margin="101,352,476,47.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+
+                <TextBlock Name="pro1" Foreground="#FFFFFF" Text="0%" FontSize="12" Margin="363,99,307,300.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Name="pro2" Foreground="#FFFFFF" Text="0%" FontSize="12" Margin="363,165,307,234.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Name="pro3" Foreground="#FFFFFF" Text="0%" FontSize="12" Margin="363,230,307,169.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Name="pro4" Foreground="#FFFFFF" Text="0%" FontSize="12" Margin="363,295,307,104.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Name="pro5" Foreground="#FFFFFF" Text="0%" FontSize="12" Margin="363,352,307,47.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+
+                <TextBlock Name="pac1" Foreground="#FFFFFF" Text="0 Mb" FontSize="12" Margin="551,99,155,300.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Name="pac2" Foreground="#FFFFFF" Text="0 Mb" FontSize="12" Margin="551,165,155,234.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Name="pac3" Foreground="#FFFFFF" Text="0 Mb" FontSize="12" Margin="551,230,155,169.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Name="pac4" Foreground="#FFFFFF" Text="0 Mb" FontSize="12" Margin="551,295,155,104.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Name="pac5" Foreground="#FFFFFF" Text="0 Mb" FontSize="12" Margin="551,352,155,47.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>            </Grid>
+        </Grid>
+        <Grid Name="Processes" Margin="0,33,0,0" Visibility="Hidden">
+            <Grid>
+                <Image Source="Resources/Graph/graphTitle.png" Margin="72,26,68,358"/>
+                <Image Source="Resources/Graph/graphLine.png" Margin="72,56,86,290.5"/>
+                <Image Source="Resources/Graph/graphLine.png" Margin="72,121,86,224.5"/>
+                <Image Source="Resources/Graph/graphLine.png" Margin="72,187,86,158.5"/>
+                <Image Source="Resources/Graph/graphLine.png" Margin="72,252,86,92.5"/>
+                <Image Source="Resources/Graph/graphLine.png" Margin="72,317,86,26.5"/>
+                <Image Source="Resources/Graph/graphLine.png" Margin="72,317,86,26.5" Opacity="0.5"/>
+
+                <TextBlock Foreground="#FFFFFF" Text="Application" FontSize="15" Margin="101,35,525,365" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P"/>
+                <TextBlock Foreground="#FFFFFF" Text="Cpu" FontSize="15" Margin="363,35,392,365" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P"/>
+                <TextBlock Foreground="#FFFFFF" Text="Memory" FontSize="15" Margin="551,35,155,365" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P"/>
+                <TextBlock Foreground="#FFFFFF" Text="LskHlpr.exe" FontSize="12" Margin="101,99,476,300.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Foreground="#FFFFFF" Text="LskHlpr64.exe" FontSize="12" Margin="101,165,476,234.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Foreground="#FFFFFF" Text="Student.exe" FontSize="12" Margin="101,230,476,169.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Foreground="#FFFFFF" Text="SmurfUltimate.exe" FontSize="12" Margin="101,295,476,104.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Foreground="#FFFFFF" Text="Total" FontSize="15" Margin="101,350,476,49.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+
+                <TextBlock Name="cpu1" Foreground="#FFFFFF" Text="0%" FontSize="12" Margin="363,99,307,300.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Name="cpu2" Foreground="#FFFFFF" Text="0%" FontSize="12" Margin="363,165,307,234.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Name="cpu3" Foreground="#FFFFFF" Text="0%" FontSize="12" Margin="363,230,307,169.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Name="cpu4" Foreground="#FFFFFF" Text="0%" FontSize="12" Margin="363,295,307,104.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Name="cpuTotal" Foreground="#FFFFFF" Text="0%" FontSize="15" Margin="363,352,307,47.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+
+                <TextBlock Name="mem1" Foreground="#FFFFFF" Text="0 Mb" FontSize="12" Margin="551,99,155,300.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Name="mem2" Foreground="#FFFFFF" Text="0 Mb" FontSize="12" Margin="551,165,155,234.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Name="mem3" Foreground="#FFFFFF" Text="0 Mb" FontSize="12" Margin="551,230,155,169.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Name="mem4" Foreground="#FFFFFF" Text="0 Mb" FontSize="12" Margin="551,295,155,104.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+                <TextBlock Name="memTotal" Foreground="#FFFFFF" Text="0 Mb" FontSize="15" Margin="551,352,155,47.8" FontFamily="/SmurfUltimate;component/Resources/Fonts/#Press Start 2P" RenderTransformOrigin="-0.968,3.893"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,15 @@
+﻿<Window x:Class="SmurfUltimate.SplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SmurfUltimate"
+        mc:Ignorable="d"
+        Title="SplashScreen" Height="100" Width="356"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <MediaElement Name="MediaElement" Source="Resources/splashScreen.gif" HorizontalAlignment="Left" Height="100" Margin="0,0,0,0" VerticalAlignment="Top" Width="356"/>
+    </Grid>
+</Window>
