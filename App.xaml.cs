@@ -7,6 +7,7 @@ namespace SmurfUltimate
         private System.Windows.Forms.NotifyIcon _notifyIcon;
         private bool _isExit;
         private MainWindow mainWindow;
+        private SplashScreen splashScreen;
 
         private string versionName;
         private string versionCode;
@@ -20,7 +21,7 @@ namespace SmurfUltimate
             discord = (string)Application.Current.FindResource("discord");
 
             base.OnStartup(e);
-            SplashScreen splashScreen = new SplashScreen();
+            splashScreen = new SplashScreen();
             splashScreen.Show();
 
             mainWindow = splashScreen.mainWindow;
@@ -33,6 +34,11 @@ namespace SmurfUltimate
             _notifyIcon.Visible = true;
 
             CreateContextMenu();
+        }
+
+        private void OnExit(object sender, ExitEventArgs e)
+        {
+            splashScreen.mainWindow.closePorts();
         }
 
         private void CreateContextMenu()

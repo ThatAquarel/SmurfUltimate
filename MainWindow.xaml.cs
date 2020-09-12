@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Timers;
 
@@ -20,10 +19,15 @@ namespace SmurfUltimate
         PerformanceCounter cpuCounter;
         PerformanceCounter ramCounter;
 
+        PacketBlock packetBlock;
+
         Timer timer;
         public MainWindow()
         {
             InitializeComponent();
+
+            packetBlock = new PacketBlock();
+            packetBlock.bindPorts();
 
             tab1sel = new BitmapImage(new Uri("pack://application:,,,/Resources/Tabs/Tab1/Tab1Selected.png"));
             tab1 = new BitmapImage(new Uri("pack://application:,,,/Resources/Tabs/Tab1/Tab1.png"));
@@ -31,6 +35,11 @@ namespace SmurfUltimate
             tab2 = new BitmapImage(new Uri("pack://application:,,,/Resources/Tabs/Tab2/Tab2.png"));
             tab3sel = new BitmapImage(new Uri("pack://application:,,,/Resources/Tabs/Tab3/Tab3Selected.png"));
             tab3 = new BitmapImage(new Uri("pack://application:,,,/Resources/Tabs/Tab3/Tab3.png"));
+        }
+
+        public void closePorts()
+        {
+            packetBlock.closePorts();
         }
 
         private void MinimizeClick(object sender, MouseButtonEventArgs e)
