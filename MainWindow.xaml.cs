@@ -19,14 +19,14 @@ namespace SmurfUltimate
         PerformanceCounter cpuCounter;
         PerformanceCounter ramCounter;
 
-        PacketBlock packetBlock;
+        PortBind packetBlock;
 
         Timer timer;
         public MainWindow()
         {
             InitializeComponent();
 
-            packetBlock = new PacketBlock();
+            packetBlock = new PortBind();
             packetBlock.bindPorts();
 
             tab1sel = new BitmapImage(new Uri("pack://application:,,,/Resources/Tabs/Tab1/Tab1Selected.png"));

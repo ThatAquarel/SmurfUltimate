@@ -5,7 +5,7 @@ using System.Net.Sockets;
 
 namespace SmurfUltimate
 {
-    class PacketBlock
+    class PortBind
     {
         //port 8080, 51329, 51340
         Socket port51329;
