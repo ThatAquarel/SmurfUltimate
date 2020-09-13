@@ -19,15 +19,15 @@ namespace SmurfUltimate
         PerformanceCounter cpuCounter;
         PerformanceCounter ramCounter;
 
-        PortBind packetBlock;
+        PortBind portBind;
 
         Timer timer;
         public MainWindow()
         {
             InitializeComponent();
 
-            packetBlock = new PortBind();
-            packetBlock.bindPorts();
+            portBind = new PortBind();
+            portBind.bindPorts();
 
             tab1sel = new BitmapImage(new Uri("pack://application:,,,/Resources/Tabs/Tab1/Tab1Selected.png"));
             tab1 = new BitmapImage(new Uri("pack://application:,,,/Resources/Tabs/Tab1/Tab1.png"));
@@ -39,7 +39,7 @@ namespace SmurfUltimate
 
         public void closePorts()
         {
-            packetBlock.closePorts();
+            portBind.closePorts();
         }
 
         private void MinimizeClick(object sender, MouseButtonEventArgs e)
