@@ -1,7 +1,7 @@
 Smurf Ultimate
 ====
 
-[Smurf Ultimate](https://raw.githubusercontent.com/AquarelMc/SmurfUltimate/master/Resources/splashScreen.gif)
+![Smurf Ultimate](https://raw.githubusercontent.com/AquarelMc/SmurfUltimate/master/Resources/splashScreen.gif)
 
 Features List
 ------------
