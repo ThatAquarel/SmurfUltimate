@@ -1,8 +1,5 @@
-Smurf Ultimate
-====
-The ultimate application to gain control over LanSchool. \
-With a rich feature set, it can ensure that your privacy is respected. \
-![Smurf Ultimate](https://raw.githubusercontent.com/AquarelMc/SmurfUltimate/master/Resources/splashScreen.gif)
+![Smurf Ultimate](https://raw.githubusercontent.com/AquarelMc/SmurfUltimate/master/Resources/splashScreen.gif)\
+**The Ultimate Application To Gain Control Over LanSchool**
 
 Features
 ------------
