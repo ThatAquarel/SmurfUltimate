@@ -7,5 +7,3 @@ The ultimate solution to gain control over LanSchool.\
 - Prevents Connections From LanSchool Server
 - Prevents Teacher To Gain Control Of Client
 - Monitors Performance Usage Of Applications
-- + *Cool gui*
-- + *Ensures you to be the coolest kid in school!*
