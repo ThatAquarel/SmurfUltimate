@@ -1,4 +1,6 @@
-﻿using System.Net;
+﻿using System;
+using System.Diagnostics;
+using System.Net;
 using System.Net.Sockets;
 
 namespace SmurfUltimate
@@ -11,6 +13,21 @@ namespace SmurfUltimate
 
         public void bindPorts()
         {
+            string targetProcessPath = @"c:\Program Files (x86)\LanSchool\student.exe";
+            string targetProcessName = "student";
+
+            Process[] runningProcesses = Process.GetProcesses();
+            foreach (Process process in runningProcesses)
+            {
+                if (process.ProcessName == targetProcessName &&
+                    process.MainModule != null &&
+                    string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
+                {
+                    System.Diagnostics.Debug.WriteLine("Killed");
+                    process.Kill();
+                }
+            }
+
             port51329 = new Socket(AddressFamily.InterNetwork, SocketType.Raw, ProtocolType.IP);
             port51329.Bind(new IPEndPoint(IPAddress.Loopback, 51329));
 
