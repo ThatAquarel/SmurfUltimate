@@ -1,12 +1,19 @@
 Smurf Ultimate
 ====
-
+The ultimate application to gain control over LanSchool. \
+With a rich feature set, it can ensure that your privacy is respected. \
 ![Smurf Ultimate](https://raw.githubusercontent.com/AquarelMc/SmurfUltimate/master/Resources/splashScreen.gif)
 
-Features List
+Features
 ------------
-- Delete Logged Browsing History (not yet implemented)
-- Delete Past Keylogger History (not yet implemented)
 - Prevents Connections From LanSchool Server
 - Prevents Teacher To Gain Control Of Client
-- Monitors Performance Usage Of Applications (not yet implemented)
+
+TODO
+------------
+- Delete Logged Browsing History
+- Delete Past Keylogger History
+- Performance Analysis
+- Network Analysis
+- ~~Prevents Connections From LanSchool Server~~
+- ~~Prevents Teacher To Gain Control Of Client~~
