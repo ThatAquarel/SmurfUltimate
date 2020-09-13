@@ -8,8 +8,10 @@ Features
 
 To Do
 ------------
-- Delete Logged Browsing History
-- Delete Past Keylogger History
+- Scramble Logged Browsing History
+- Scramble Past Keylogger History
+- Stop Web History Logging Service
+- Stop LanSchool Restart Service
 - Performance Analysis
 - Network Analysis
 - Finish Readme
