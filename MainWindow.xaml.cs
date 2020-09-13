@@ -1,27 +1,24 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Timers;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
-using System.Timers;
 
 namespace SmurfUltimate
 {
     public partial class MainWindow : Window
     {
-        BitmapImage tab1sel;
-        BitmapImage tab1;
-        BitmapImage tab2sel;
-        BitmapImage tab2;
-        BitmapImage tab3sel;
-        BitmapImage tab3;
-
-        PerformanceCounter cpuCounter;
-        PerformanceCounter ramCounter;
-
-        PortBind portBind;
-
-        Timer timer;
+        private BitmapImage tab1sel;
+        private BitmapImage tab1;
+        private BitmapImage tab2sel;
+        private BitmapImage tab2;
+        private BitmapImage tab3sel;
+        private BitmapImage tab3;
+        private PerformanceCounter cpuCounter;
+        private PerformanceCounter ramCounter;
+        private PortBind portBind;
+        private Timer timer;
         public MainWindow()
         {
             InitializeComponent();
@@ -84,7 +81,7 @@ namespace SmurfUltimate
 
         private void WindowDrag(object sender, MouseEventArgs e)
         {
-            if(e.LeftButton == MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
                 this.DragMove();
             }
