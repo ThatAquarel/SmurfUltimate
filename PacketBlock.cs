@@ -23,7 +23,7 @@ namespace SmurfUltimate
                     process.MainModule != null &&
                     string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
                 {
-                    System.Diagnostics.Debug.WriteLine("Killed");
+                    Debug.WriteLine("Killed");
                     process.Kill();
                 }
             }
