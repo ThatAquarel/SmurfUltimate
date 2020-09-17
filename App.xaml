@@ -1,17 +1,15 @@
 ﻿<Application x:Class="SmurfUltimate.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:SmurfUltimate"
              Exit="OnExit">
     <Application.Resources>
-        <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        <ResourceDictionary
                             xmlns:system="clr-namespace:System;assembly=mscorlib">
             <FontFamily x:Key="PressStart">pack://application:,,,/Resources/Fonts/PressStart2P.ttf</FontFamily>
-            <system:String x:Key="versionName">Smurf Ultimate</system:String>
-            <system:String x:Key="versionCode">1.0</system:String>
-            <system:String x:Key="author">Aquarel</system:String>
-            <system:String x:Key="discord">https://discord.gg/2AD8qj2</system:String>
+            <system:String x:Key="VersionName">Smurf Ultimate</system:String>
+            <system:String x:Key="VersionCode">1.0</system:String>
+            <system:String x:Key="Author">Aquarel</system:String>
+            <system:String x:Key="Discord">https://discord.gg/2AD8qj2</system:String>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

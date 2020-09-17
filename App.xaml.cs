@@ -2,31 +2,31 @@
 using System.Windows;
 namespace SmurfUltimate
 {
-    public partial class App : Application
+    public partial class App
     {
         private System.Windows.Forms.NotifyIcon _notifyIcon;
         private bool _isExit;
-        private MainWindow mainWindow;
-        private SplashScreen splashScreen;
+        private MainWindow _mainWindow;
+        private SplashScreen _splashScreen;
 
-        private string versionName;
-        private string versionCode;
-        private string author;
-        private string discord;
+        private string _versionName;
+        private string _versionCode;
+        private string _author;
+        private string _discord;
         protected override void OnStartup(StartupEventArgs e)
         {
-            versionName = (string)Application.Current.FindResource("versionName");
-            versionCode = (string)Application.Current.FindResource("versionCode");
-            author = (string)Application.Current.FindResource("author");
-            discord = (string)Application.Current.FindResource("discord");
+            _versionName = (string)Current.FindResource("VersionName");
+            _versionCode = (string)Current.FindResource("VersionCode");
+            _author = (string)Current.FindResource("Author");
+            _discord = (string)Current.FindResource("Discord");
 
             base.OnStartup(e);
-            splashScreen = new SplashScreen();
-            splashScreen.Show();
+            _splashScreen = new SplashScreen();
+            _splashScreen.Show();
 
-            mainWindow = splashScreen.mainWindow;
+            _mainWindow = _splashScreen.mainWindow;
 
-            mainWindow.Closing += MainWindow_Closing;
+            _mainWindow.Closing += MainWindow_Closing;
 
             _notifyIcon = new System.Windows.Forms.NotifyIcon();
             _notifyIcon.DoubleClick += (s, args) => ShowMainWindow();
@@ -34,26 +34,32 @@ namespace SmurfUltimate
             _notifyIcon.Visible = true;
 
             CreateContextMenu();
+
+            //Engine.findProcessInSystray();
         }
 
         private void OnExit(object sender, ExitEventArgs e)
         {
-            splashScreen.mainWindow.closePorts();
+            Process.KillLsk();
+
+            _splashScreen.mainWindow.ClosePorts();
+
+            Process.StartLsk();
         }
 
         private void CreateContextMenu()
         {
             _notifyIcon.ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
-            _notifyIcon.Text = versionName;
-            _notifyIcon.ContextMenuStrip.Items.Add("Open " + versionName).Click += (s, e) => ShowMainWindow();
+            _notifyIcon.Text = _versionName;
+            _notifyIcon.ContextMenuStrip.Items.Add("Open " + _versionName).Click += (s, e) => ShowMainWindow();
             _notifyIcon.ContextMenuStrip.Items.Add("About").Click += (s, e) => ShowAbout();
             _notifyIcon.ContextMenuStrip.Items.Add("Exit").Click += (s, e) => ExitApplication();
         }
 
         private void ShowAbout()
         {
-            string messageBoxText = "Version: " + versionCode + "\n" + "Author: " + author + "\n" + "Discord: " + discord;
-            string caption = versionName;
+            string messageBoxText = "Version: " + _versionCode + "\n" + "Author: " + _author + "\n" + "Discord: " + _discord;
+            string caption = _versionName;
             MessageBoxButton button = MessageBoxButton.OK;
             MessageBoxImage icon = MessageBoxImage.Information;
 
@@ -63,24 +69,24 @@ namespace SmurfUltimate
         private void ExitApplication()
         {
             _isExit = true;
-            mainWindow.Close();
+            _mainWindow.Close();
             _notifyIcon.Dispose();
             _notifyIcon = null;
         }
 
         private void ShowMainWindow()
         {
-            if (mainWindow.IsVisible)
+            if (_mainWindow.IsVisible)
             {
-                if (mainWindow.WindowState == WindowState.Minimized)
+                if (_mainWindow.WindowState == WindowState.Minimized)
                 {
-                    mainWindow.WindowState = WindowState.Normal;
+                    _mainWindow.WindowState = WindowState.Normal;
                 }
-                mainWindow.Activate();
+                _mainWindow.Activate();
             }
             else
             {
-                mainWindow.Show();
+                _mainWindow.Show();
             }
         }
 
@@ -89,7 +95,7 @@ namespace SmurfUltimate
             if (!_isExit)
             {
                 e.Cancel = true;
-                mainWindow.Hide();
+                _mainWindow.Hide();
             }
         }
     }

@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Timers;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
 namespace SmurfUltimate
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         private BitmapImage tab1sel;
         private BitmapImage tab1;
@@ -15,16 +13,13 @@ namespace SmurfUltimate
         private BitmapImage tab2;
         private BitmapImage tab3sel;
         private BitmapImage tab3;
-        private PerformanceCounter cpuCounter;
-        private PerformanceCounter ramCounter;
         private PortBind portBind;
-        private Timer timer;
         public MainWindow()
         {
             InitializeComponent();
 
             portBind = new PortBind();
-            portBind.bindPorts();
+            portBind.BindPorts();
 
             tab1sel = new BitmapImage(new Uri("pack://application:,,,/Resources/Tabs/Tab1/Tab1Selected.png"));
             tab1 = new BitmapImage(new Uri("pack://application:,,,/Resources/Tabs/Tab1/Tab1.png"));
@@ -34,9 +29,9 @@ namespace SmurfUltimate
             tab3 = new BitmapImage(new Uri("pack://application:,,,/Resources/Tabs/Tab3/Tab3.png"));
         }
 
-        public void closePorts()
+        public void ClosePorts()
         {
-            portBind.closePorts();
+            portBind.ClosePorts();
         }
 
         private void MinimizeClick(object sender, MouseButtonEventArgs e)

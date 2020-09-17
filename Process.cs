@@ -8,7 +8,7 @@ namespace SmurfUltimate
         private static string[] targetProcessesPath = { @"c:\Program Files (x86)\LanSchool\student.exe", @"c:\Program Files (x86)\LanSchool\LskHelper.exe", @"c:\Program Files (x86)\LanSchool\lskHlpr64.exe" };
         private static string[] targetProcessesName = { "student", "LskHelper", "lskHlpr64" };
 
-        public static void killLsk()
+        public static void KillLsk()
         {
             for (int i = 0; i < targetProcessesPath.Length; i++)
             {
@@ -29,7 +29,7 @@ namespace SmurfUltimate
             }
         }
 
-        public static void startLsk()
+        public static void StartLsk()
         {
             for (int i = 0; i < targetProcessesPath.Length; i++)
             {
