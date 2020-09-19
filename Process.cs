@@ -3,17 +3,17 @@ using System.Diagnostics;
 
 namespace SmurfUltimate
 {
-    internal class Process
+    internal static class Process
     {
-        private static string[] targetProcessesPath = { @"c:\Program Files (x86)\LanSchool\student.exe", @"c:\Program Files (x86)\LanSchool\LskHelper.exe", @"c:\Program Files (x86)\LanSchool\lskHlpr64.exe" };
-        private static string[] targetProcessesName = { "student", "LskHelper", "lskHlpr64" };
+        private static readonly string[] TargetProcessesPath = { @"c:\Program Files (x86)\LanSchool\student.exe", @"c:\Program Files (x86)\LanSchool\LskHelper.exe", @"c:\Program Files (x86)\LanSchool\lskHlpr64.exe" };
+        private static readonly string[] TargetProcessesName = { "student", "LskHelper", "lskHlpr64" };
 
         public static void KillLsk()
         {
-            for (int i = 0; i < targetProcessesPath.Length; i++)
+            for (int i = 0; i < TargetProcessesPath.Length; i++)
             {
-                string targetProcessPath = targetProcessesPath[i];
-                string targetProcessName = targetProcessesName[i];
+                string targetProcessPath = TargetProcessesPath[i];
+                string targetProcessName = TargetProcessesName[i];
 
                 System.Diagnostics.Process[] runningProcesses = System.Diagnostics.Process.GetProcesses();
                 foreach (System.Diagnostics.Process process in runningProcesses)
@@ -31,10 +31,10 @@ namespace SmurfUltimate
 
         public static void StartLsk()
         {
-            for (int i = 0; i < targetProcessesPath.Length; i++)
+            for (int i = 0; i < TargetProcessesPath.Length; i++)
             {
-                string targetProcessPath = targetProcessesPath[i];
-                string targetProcessName = targetProcessesName[i];
+                string targetProcessPath = TargetProcessesPath[i];
+                string targetProcessName = TargetProcessesName[i];
 
                 System.Diagnostics.Process.Start(targetProcessPath.Replace("\\", "\\\\"));
                 Debug.WriteLine("Started " + targetProcessName);
