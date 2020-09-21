@@ -10,31 +10,29 @@ namespace SmurfUltimate
 
         public static void KillLsk()
         {
-            for (int i = 0; i < TargetProcessesPath.Length; i++)
+            for (var i = 0; i < TargetProcessesPath.Length; i++)
             {
-                string targetProcessPath = TargetProcessesPath[i];
-                string targetProcessName = TargetProcessesName[i];
+                var targetProcessPath = TargetProcessesPath[i];
+                var targetProcessName = TargetProcessesName[i];
 
-                System.Diagnostics.Process[] runningProcesses = System.Diagnostics.Process.GetProcesses();
-                foreach (System.Diagnostics.Process process in runningProcesses)
+                var runningProcesses = System.Diagnostics.Process.GetProcesses();
+                foreach (var process in runningProcesses)
                 {
-                    if (process.ProcessName == targetProcessName &&
-                        process.MainModule != null &&
-                        string.Compare(process.MainModule.FileName, targetProcessPath, StringComparison.InvariantCultureIgnoreCase) == 0)
-                    {
-                        Debug.WriteLine("Killed " + targetProcessName);
-                        process.Kill();
-                    }
+                    if (process.ProcessName != targetProcessName || process.MainModule == null ||
+                        string.Compare(process.MainModule.FileName, targetProcessPath,
+                            StringComparison.InvariantCultureIgnoreCase) != 0) continue;
+                    Debug.WriteLine("Killed " + targetProcessName);
+                    process.Kill();
                 }
             }
         }
 
         public static void StartLsk()
         {
-            for (int i = 0; i < TargetProcessesPath.Length; i++)
+            for (var i = 0; i < TargetProcessesPath.Length; i++)
             {
-                string targetProcessPath = TargetProcessesPath[i];
-                string targetProcessName = TargetProcessesName[i];
+                var targetProcessPath = TargetProcessesPath[i];
+                var targetProcessName = TargetProcessesName[i];
 
                 System.Diagnostics.Process.Start(targetProcessPath.Replace("\\", "\\\\"));
                 Debug.WriteLine("Started " + targetProcessName);

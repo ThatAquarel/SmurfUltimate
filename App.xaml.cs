@@ -35,15 +35,11 @@ namespace SmurfUltimate
 
             CreateContextMenu();
 
-            //Engine.findProcessInSystray();
+            Process.KillLsk();
         }
 
         private void OnExit(object sender, ExitEventArgs e)
         {
-            Process.KillLsk();
-
-            _splashScreen.mainWindow.ClosePorts();
-
             Process.StartLsk();
         }
 
@@ -58,10 +54,10 @@ namespace SmurfUltimate
 
         private void ShowAbout()
         {
-            string messageBoxText = "Version: " + _versionCode + "\n" + "Author: " + _author + "\n" + "Discord: " + _discord;
-            string caption = _versionName;
-            MessageBoxButton button = MessageBoxButton.OK;
-            MessageBoxImage icon = MessageBoxImage.Information;
+            var messageBoxText = "Version: " + _versionCode + "\n" + "Author: " + _author + "\n" + "Discord: " + _discord;
+            var caption = _versionName;
+            const MessageBoxButton button = MessageBoxButton.OK;
+            const MessageBoxImage icon = MessageBoxImage.Information;
 
             MessageBox.Show(messageBoxText, caption, button, icon);
         }
@@ -92,11 +88,9 @@ namespace SmurfUltimate
 
         private void MainWindow_Closing(object sender, CancelEventArgs e)
         {
-            if (!_isExit)
-            {
-                e.Cancel = true;
-                _mainWindow.Hide();
-            }
+            if (_isExit) return;
+            e.Cancel = true;
+            _mainWindow.Hide();
         }
     }
 }

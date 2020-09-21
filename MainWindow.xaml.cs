@@ -13,13 +13,9 @@ namespace SmurfUltimate
         private readonly BitmapImage _tab2;
         private readonly BitmapImage _tab3Sel;
         private readonly BitmapImage _tab3;
-        private readonly PortBind _portBind;
         public MainWindow()
         {
             InitializeComponent();
-
-            _portBind = new PortBind();
-            _portBind.BindPorts();
 
             _tab1Sel = new BitmapImage(new Uri("pack://application:,,,/Resources/Tabs/Tab1/Tab1selected.png"));
             _tab1= new BitmapImage(new Uri("pack://application:,,,/Resources/Tabs/Tab1/Tab1.png"));
@@ -29,14 +25,9 @@ namespace SmurfUltimate
             _tab3 = new BitmapImage(new Uri("pack://application:,,,/Resources/Tabs/Tab3/Tab3.png"));
         }
 
-        public void ClosePorts()
-        {
-            _portBind.ClosePorts();
-        }
-
         private void MinimizeClick(object sender, MouseButtonEventArgs e)
         {
-            this.Hide();
+            Hide();
         }
 
         private void CloseClick(object sender, MouseButtonEventArgs e)
@@ -78,7 +69,7 @@ namespace SmurfUltimate
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                this.DragMove();
+                DragMove();
             }
         }
     }
