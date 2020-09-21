@@ -7,13 +7,12 @@
         Title="Smurf Ultimate" Height="450" Width="800"
         WindowStyle="None"
         ResizeMode="CanMinimize"
-        WindowStartupLocation="CenterScreen"
-        MouseMove="WindowDrag">
+        WindowStartupLocation="CenterScreen">
     <Window.Background>
         <ImageBrush ImageSource="Resources/background.png"></ImageBrush>
     </Window.Background>
     <Grid>
-        <Grid x:Name="Interface" Margin="0,0,0,415">
+        <Grid x:Name="Interface" Margin="0,0,0,415" MouseMove="WindowDrag">
             <Image Name="Separator" Source="Resources/separator.png" Margin="0,28,0,0"/>
             <Image Name="CloseButton" HorizontalAlignment="Left" Height="28" Margin="734,0,0,0" VerticalAlignment="Top" Width="66" MouseLeftButtonUp="CloseClick">
                 <Image.Style>
